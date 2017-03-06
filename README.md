@@ -3,6 +3,8 @@ My Lovely Project
 
 A great example repo you can fork to your heart’s content, that serves as a launchpad for working your way through the amazing **[Learning GitHub](http://shop.oreilly.com/category/videos/programming.do)** video training series.
 
+Here is [my link to my concept that lives in the other folder](docs/concept.md)
+
 ## Getting started
 
 The first thing you want to do with this repo is quite likely [**fork it**](http:www.google.com).  Use the Fork button in the top-right section of the page to do this.
