@@ -1,4 +1,4 @@
-Ensuring the template is secure
+Ensure the template is secure
 ===============================
 
 To ensure the CloudFormation template is the one provided by F5, you can do some verification.
