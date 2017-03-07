@@ -76,18 +76,24 @@ Scale Up Bytes Threshold = <br>
 200 Mbps  = 26214400 bytes  * .80 =  20971520<br>
 1000 Mbps = 131072000 bytes * .80 = 104857600<br>
 5000 Mbps = 655360000 bytes * .80 = 524288000
-
-
-
  
 
 #### Configuration details <a name="config"></a>
 
-The following is a simple configuration diagram deployment. 
+The following diagram shows a simple deployment of this solution. 
 
 ![Configuration example](images/config-diagram-autoscale-waf.png)
 
-This solution creates a clustered set of BIG-IP VEs. They are configured by using an [iApp](https://devcentral.f5.com/iapps) that includes a basic virtual service (listening on 0.0.0.0:80) with a WAF policy.  
+
+## In BIG-IP VE: ##
+
+A clustered set of BIG-IP VEs are created in AWS. 
+
+The LTM and ASM modules, which are provisioned on each BIG-IP VE, provide advanced traffic management and security functionality. The CloudFormation template uses the default **Best 1000Mbps** image available in the AWS marketplace to license these modules (you can choose 1000, 200, or 25 Mbps).
+
+The BIG-IP VEs are configured by using an [iApp](https://devcentral.f5.com/iapps) that includes a basic virtual service (listening on 0.0.0.0:80) with a WAF policy. 
+
+Each BIG-IP VE instance has a single network interface (NIC) attached to a public subnet. This single interface processes both management and data plane traffic. 
 
 When the first instance of BIG-IP VE launches, a device group called "autoscale-group" is automatically created. This instance is registered as the primary instance and it remains in the device group, even while other instances are launched/added to the cluster and terminated/removed from the cluster. 
 
@@ -99,18 +105,15 @@ Cluster membership is updated every 10 minutes and metrics are sent (where?) eve
 
 Automatic sync is enabled for the device group, so configuration changes are immediately propagated to all BIG-IP VEs in the cluster. All instances are "Active" and actively process traffic. 
 
-## Additional BIG-IP VE deployment and configuration details 
+## In AWS: ##
 
-All BIG-IP VE instances deploy with a single interface (NIC) attached to a public subnet. This single interface processes both management and data plane traffic. The LTM and ASM provide advanced traffic management and security functionality. The CloudFormation template collects some initial deployment input parameters and creates an auto scale group of BIG-IP VEs. The instances parameters and configurations are defined by the Auto Scale group's *launch configuration*. The launch configuration is used to:
+In AWS, an auto scaling group of BIG-IP VEs is created. Each instance's parameters and configuration is defined by the auto scaling group's *launch configuration*. The launch configuration is used to:
 
   - Set the BIG-IP system information: hostname, NTP, DNS settings, and so on.
   - Provision the WAF module: BIG-IP Application Security Manager (ASM)
   - Join the auto scale cluster
   - Deploy integration with EC2 Auto Scale and CloudWatch services for scaling of the BIG-IP tier.
-  - Create an initial HTTP virtual server with a basic Web Application Firewall policy (Low, Medium, High)
-    - See the [Security Blocking Levels](##security-blocking-levels-) section for a description of the blocking levels for the Web Application Firewall presented in the template.
-
-The CloudFormation template uses the default **Best 1000Mbps** image available in the AWS marketplace to license these modules (you can choose 1000, 200, or 25 Mbps). Once the first instance is deployed, it becomes the cluster primary and all subsequent instances launched will join a cluster primary to pull the latest configuration from the cluster. In this respect, you can make changes to the running configuration of this cluster and not have to manage the lifecycle of the configuration strictly through the Launch Configuration.  
+  - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](blocking_levels.md).
 
 ## After you deploy ##
 
