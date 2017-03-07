@@ -4,49 +4,41 @@
 **Contents**             
 
 
- - [Security](security.md)
- 
  [update the base configuration](updating.md)
- 
  
  [remove the solution](removing.md)
  
- [ELB details](ELB_details.md)
- 
  [launch config info](launch_config.md)
  
- [Permission info](perms.md)
-
 
 ## Introduction
-This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) systems in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
-
+This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
 ## Prerequisites
-Before deploying the template, ensure you have the following prerequisites:
+Before deploying the template, be sure that you have these prerequisites:
+ - A [secure, accurate, and up-to-date template](security.md).
  - The appropriate [AWS permissions](perms.md). 
  - An AWS VPC with a public subnet.
  - A DNS name for the application pool; either a server or the ELB behind BIG-IP VE.
  - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VE. It must be pre-configured to perform SSL offload.
- - Key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS).
+ - A key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS).
  - An AWS Security Group with the following inbound rules:
-    - Port 22 for SSH access to the BIG-IP VE *(source = Intra-VPC and/or mgmt networks)*
-    - Port 8443 (or other port) for accessing the BIG-IP web-based Configuration utility *(source = Intra-VPC and/or mgmt networks)*. See the [Configuration Utility note](#note) for an important note about accessing the Configuration utility.
+    - Port 22 for SSH access to BIG-IP VE *(source = Intra-VPC and/or mgmt networks)*
+    - Port 8443 (or other port) for the BIG-IP web-based Configuration utility *(source = Intra-VPC and/or mgmt networks)*.
     - Port 4353 and 6123-6128 for cluster communication *(source = Intra-VPC or the public subnet of the peer)* 
-    - Port 80 accessing your applications via the BIG-IP virtual server *(source = any)*
+    - Port 80 for accessing your applications via the BIG-IP virtual server *(source = any)*
  - Access to **Best** BIG-IP images in the Amazon region within which you are working.
  - Accept the EULA for all images in the AWS Marketplace. If you have not deployed BIG-IP VE in your environment before, search for F5 in the Marketplace and accept the EULA there.
  
- 
-## Quick Start 
-This readme file describes launching from the AWS Marketplace.  If you are using another method, see https://github.com/F5Networks/f5-aws-cloudformation/tree/master/supported/solutions/autoscale.
+## How to deploy the template 
+This readme file describes launching from the AWS Marketplace. If you are using another method, see https://github.com/F5Networks/f5-aws-cloudformation/tree/master/supported/solutions/autoscale.
 
-For the Marketplace, 
-- From the **For Region** list, select your Region 
-- From the **Delivery Methods** list, select **Auto Scale Cluster Deployment using AWS CFT**
-- Click **Continue**
+From the Marketplace: 
+- From the **For Region** list, select your Region.
+- From the **Delivery Methods** list, select **Auto Scale Cluster Deployment using AWS CFT**.
+- Click **Continue**.
 - Launch the CloudFormation template.
-- When BIG-IP VE is running, [log in](login.md).
+- When BIG-IP VE has initialized successfully, [log in](login.md).
 
 ### Template Parameters ###
 One you have launched the CFT from the marketplace, you need to complete the template by entering the required parameter values. The following table can help you gather the information you need before beginning the template.  
@@ -94,6 +86,7 @@ Scale Up Bytes Threshold = <br>
 1000 Mbps = 131072000 bytes * .80 = 104857600<br>
 5000 Mbps = 655360000 bytes * .80 = 524288000
 
+## Objects created during the deployment ##
 
 
 
@@ -116,6 +109,7 @@ The following is a simple configuration diagram deployment.
 #### Detailed clustering information
 This solution creates a clustered system with "AutoSync" enabled, so any change is immediately propagated throughout the cluster. Each cluster member instance reports "Active" and "Actively" processes traffic.  Although Autosync is enabled and technically you can make changes to any existing clustered member, for consistency we recommend you make any changes to the original, primary instance.
 
+parameter descript
 We also recommended you launch the cluster with one member instance to start. This instance registers itself as the primary and sets "Scale In" protection to Enabled. 
 
 When the first auto scale instance is launched, a Device Group called "autoscale-group" is automatically created. 
