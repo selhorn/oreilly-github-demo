@@ -4,7 +4,7 @@
 ## Introduction
 This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
-For more details, see [Deployment details](config).
+For more details, see [Deployment details](#config).
 
 ## Prerequisites
 Before deploying the solution from the AWS Marketplace, be sure you have these prerequisites:
