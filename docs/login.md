@@ -1,4 +1,4 @@
-Log into the BIG-IP device
+Log in to the BIG-IP device
 ==========================
 
 After BIG-IP VE is initialized, if you want to access the BIG-IP web-based Configuration utility, you must first SSH to the instance and set a password for the admin user. This user can log in to the Configuration utility.
