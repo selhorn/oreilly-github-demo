@@ -1,4 +1,6 @@
-## Example ELB configuration <a name="elb"></a>
+Example ELB configuration
+=========================
+
 The following is an example ELB configuration that could be used in this implementation. For specific instructions on configuring an ELB, see http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-getting-started.html.
 
 ```json
