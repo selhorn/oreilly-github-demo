@@ -97,8 +97,6 @@ When the first instance of BIG-IP VE launches, a device group called "autoscale-
 
 After the first instance is launched, you can [log in to this instance](login.md) and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
 
-For details about updating the base configuration, see [Update the base configuration](updating.md).
-
 Cluster membership is updated every 10 minutes and metrics are sent (where?) every 60 seconds using [iCall](https://devcentral.f5.com/icall).
 
 Automatic sync is enabled for the device group, so configuration changes are immediately propagated to all BIG-IP VEs in the cluster. All instances are "Active" and actively process traffic. 
@@ -111,8 +109,8 @@ In AWS, an Auto Scaling Group of BIG-IP VEs is created. Each instance's paramete
   - Provision the WAF module: BIG-IP Application Security Manager (ASM)
   - Join the BIG-IP VE cluster
   - Deploy integration with EC2 Auto Scaling and CloudWatch services for scaling of the BIG-IP tier.
-  - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](blocking_levels.md).
-
+  - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](blocking_levels.md)).
+  
 ## After you deploy ##
 
 - If you need to upgrade or change the deployment, you can [update the stack](updating.md).
