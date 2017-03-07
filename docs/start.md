@@ -19,14 +19,14 @@
 
 
 ## Introduction
-This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) systems in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality.  As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
+This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) systems in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
 
 ## Prerequisites
-The following are prerequisites for this solution:
- - The appropriate permission in AWS to launch CloudFormation templates. This template creates Auto Scale Groups, S3 Buckets, Instances, and IAM Instance Profiles, so the account you are using must have permission to create these objects.
- - An existing AWS VPC with a public subnet, a classic Elastic load balancer (ELB) in front of the BIG-IP VE(s), and a DNS name for the application pool (which can be also be the DNS name of an ELB if using one behind the BIG-IP(s)). 
-   - The classic ELB in front of the BIG-IP VEs must be pre-configured to perform SSL offload for the BIG-IP WAF auto scale tier.  See [ELB configuration](#elb) for an example of the ELB configuration.
+Before deploying the template, ensure you have the following prerequisites:
+ - The appropriate [AWS permissions](perms.md). 
+ - An AWS VPC with a public subnet and a DNS name for the application pool (which can be also be the DNS name of an ELB if using one behind the BIG-IP). 
+   - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VEs must be pre-configured to perform SSL offload for the BIG-IP WAF auto scale tier.  See [ELB configuration](#elb) for an example of the ELB configuration.
  - Access to **Best** BIG-IP images in the Amazon region within which you are working.
  - Accepted the EULA for all Images in the AWS marketplace. If you have not accepted the EULAs, you may experience an unspecified error when trying to launch the configuration. 
  - Key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS)
