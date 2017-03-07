@@ -4,7 +4,7 @@
 ## Introduction
 This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
-For more details, see [Configuration details](config).
+For more details, see [Deployment details](config).
 
 ## Prerequisites
 Before deploying the solution from the AWS Marketplace, be sure you have these prerequisites:
@@ -67,7 +67,7 @@ One you have launched the CFT from the marketplace, you need to complete the tem
 | costcenter |  | Cost Center Tag (the default is f5costcenter) |
 <br>
 
-<sup>1</sup> Note about the Scaling Up/Down Thresholds:
+<sup>1</sup> About Scaling Up/Down Thresholds:
 The default values are set artificially low for testing. We recommend adjusting as a ratio to utility size (optional).
 For example, 80% of Throughput:
 
@@ -78,16 +78,16 @@ Scale Up Bytes Threshold = <br>
 5000 Mbps = 655360000 bytes * .80 = 524288000
  
 
-#### Configuration details <a name="config"></a>
+## Deployment details <a name="config"></a> ##
 
 The following diagram shows a simple deployment of this solution. 
 
-![Configuration example](images/config-diagram-autoscale-waf.png)
+![Deployment example](images/config-diagram-autoscale-waf.png)
 
 
-## In BIG-IP VE: ##
+### In BIG-IP VE: ###
 
-A clustered set of BIG-IP VEs are created in AWS. 
+In this solution, a clustered set of BIG-IP VEs are created in AWS. 
 
 The LTM and ASM modules, which are provisioned on each BIG-IP VE, provide advanced traffic management and security functionality. The CloudFormation template uses the default **Best 1000Mbps** image available in the AWS marketplace to license these modules (you can choose 1000, 200, or 25 Mbps).
 
@@ -105,7 +105,7 @@ Cluster membership is updated every 10 minutes and metrics are sent (where?) eve
 
 Automatic sync is enabled for the device group, so configuration changes are immediately propagated to all BIG-IP VEs in the cluster. All instances are "Active" and actively process traffic. 
 
-## In AWS: ##
+### In AWS: ###
 
 In AWS, an auto scaling group of BIG-IP VEs is created. Each instance's parameters and configuration is defined by the auto scaling group's *launch configuration*. The launch configuration is used to:
 
@@ -117,9 +117,9 @@ In AWS, an auto scaling group of BIG-IP VEs is created. Each instance's paramete
 
 ## After you deploy ##
 
-- If you need to upgrade or change things, you can [update the stack](updating.md).
+- If you need to upgrade or change the deployment, you can [update the stack](updating.md).
 
-- If you want to remove the solution altogether, [you can].(removing.md)
+- If you want to remove the deployment altogether, [you can].(removing.md)
 
 
 ### Help <a name="help"></a>
