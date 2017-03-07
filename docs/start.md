@@ -7,7 +7,7 @@ Secure your applications by using this auto scaling deployment of BIG-IP Virtual
 For more details, see [Deployment details](#config).
 
 ## Prerequisites
-Before deploying the solution from the AWS Marketplace, be sure you have these prerequisites:
+Before you deploy this solution from the AWS Marketplace, you need these prerequisites:
  - A [secure, accurate, and up-to-date template](security.md).
  - The appropriate [AWS permissions](perms.md). 
  - An AWS VPC with a public subnet.
