@@ -20,6 +20,7 @@ To use this solution, you must have access to the following resources.
   The SNS topic is used to notify the admin via email of Scale Up / Down events.
   - Cloudwatch Alarms<br>
   These alarms are used to trigger scale Up / Down events.
+  
   - Auto Scaling Group<br>
   By default, the number of auto scaled instances is set to 1 and the Max is set to 8. We recommend you launch the solution with 1 instance to start. 
 
