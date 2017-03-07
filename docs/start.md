@@ -18,6 +18,8 @@
  [ELB details](ELB_details.md)
  
  [launch config info](launch_config.md)
+ 
+ [Permission info](perms.md)
 
 
 ## Introduction
