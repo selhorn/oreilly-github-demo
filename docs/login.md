@@ -11,5 +11,5 @@ After BIG-IP VE is initialized, if you want to access the BIG-IP web-based Confi
  
 Log in to the Configuration utility by using this URL: **https://(IP Address of the instance):8443**
 
-You can now configure the BIG-IP VE as needed. See the BIG-IP documentation for details (https://support.f5.com/csp/tech-documents)
+You can now configure the BIG-IP VE as needed. See the BIG-IP documentation for details (https://support.f5.com/csp/tech-documents).
 
