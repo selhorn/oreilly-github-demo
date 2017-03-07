@@ -1,4 +1,6 @@
-### Security blocking levels
+Security blocking levels
+========================
+
 The security blocking level you choose when you configure the template determines how much traffic is blocked and alerted by the F5 WAF.
 
 Attack signatures are rules that identify attacks on a web application and its components. The WAF has at least 2600 attack signatures available. The higher the security level you choose, the more traffic that is blocked by these signatures.
