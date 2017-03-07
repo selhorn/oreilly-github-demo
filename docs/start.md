@@ -25,16 +25,17 @@ This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Applica
 ## Prerequisites
 Before deploying the template, ensure you have the following prerequisites:
  - The appropriate [AWS permissions](perms.md). 
- - An AWS VPC with a public subnet and a DNS name for the application pool (which can be also be the DNS name of an ELB if using one behind the BIG-IP). 
-   - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VEs must be pre-configured to perform SSL offload for the BIG-IP WAF auto scale tier.  See [ELB configuration](#elb) for an example of the ELB configuration.
- - Access to **Best** BIG-IP images in the Amazon region within which you are working.
- - Accepted the EULA for all Images in the AWS marketplace. If you have not accepted the EULAs, you may experience an unspecified error when trying to launch the configuration. 
- - Key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS)
+ - An AWS VPC with a public subnet.
+ - A DNS name for the application pool. If you are using an ELB behind the BIG-IP VE, this can be the DNS name.
+ - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VE. It must be pre-configured to perform SSL offload.
+ - Key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS).
  - An AWS Security Group with the following inbound rules:
     - Port 22 for SSH access to the BIG-IP VE *(source = Intra-VPC and/or mgmt networks)*
     - Port 8443 (or other port) for accessing the BIG-IP web-based Configuration utility *(source = Intra-VPC and/or mgmt networks)*. See the [Configuration Utility note](#note) for an important note about accessing the Configuration utility.
     - Port 4353 and 6123-6128 for cluster communication *(source = Intra-VPC or the public subnet of the peer)* 
     - Port 80 accessing your applications via the BIG-IP virtual server *(source = any)*
+ - Access to **Best** BIG-IP images in the Amazon region within which you are working.
+ - Accept the EULA for all images in the AWS Marketplace. If you have not deployed BIG-IP VE in your environment before, search for F5 in the Marketplace and accept the EULA there.
  
  
 ## Quick Start 
