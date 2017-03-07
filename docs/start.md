@@ -14,6 +14,8 @@
  
  
  [remove the solution](removing.md)
+ 
+ [ELB details](ELB_details.md)
 
 
 ## Introduction
