@@ -3,11 +3,7 @@
 
 **Contents**             
 
- - [Introduction](#introduction) 
- - [Prerequisites](#prerequisites)
- - [Quick Start] (#quick-start-)
- - [Getting Help](#help)
- - [Additional BIG-IP VE Deployment and Configuration Details](#additional-big-ip-ve-deployment-and-configuration-details)
+
  - [Security](security.md)
  
  [update the base configuration](updating.md)
