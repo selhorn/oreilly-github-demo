@@ -1,16 +1,6 @@
 # Auto Scaling the BIG-IP VE Web Application Firewall in AWS
 [![Slack Status](https://f5cloudsolutions.herokuapp.com/badge.svg)](https://f5cloudsolutions.herokuapp.com)
 
-**Contents**             
-
-
- [update the base configuration](updating.md)
- 
- [remove the solution](removing.md)
- 
- [launch config info](launch_config.md)
- 
-
 ## Introduction
 This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
@@ -86,16 +76,11 @@ Scale Up Bytes Threshold = <br>
 5000 Mbps = 655360000 bytes * .80 = 524288000
 
 
-### Help <a name="help"></a>
-Because this template has been created and fully tested by F5 Networks, it is supported by F5. This means you can get assistance if necessary from F5 Technical Support.
-
-We encourage you to use our [Slack channel](https://f5cloudsolutions.herokuapp.com) for discussion and assistance on F5 CloudFormation templates.  This channel is typically monitored Monday-Friday 9-5 PST by F5 employees who will offer best-effort support. 
-
-## File an Issue
-If you find an issue, we would love to hear about it. 
-You have a choice when it comes to filing issues:
-  - For enhancements, feature requests, and non-urgent bug fixes: On the GitHub menu bar in this repository, use the **Issues** link. Tell us as much as you can about what you found and how you found it.
-  - For more time sensitive changes and other issues requiring immediate support: Use your typical method for contacting F5 Technical support.
+ [update the base configuration](updating.md)
+ 
+ [remove the solution](removing.md)
+ 
+ [launch config info](launch_config.md)
 
 #### Configuration Example <a name="config"></a>
 
@@ -117,7 +102,17 @@ This deployment creates an initial BIG-IP configuration using an [iApp](https://
 
 After the first instance is launched, you can log in and customize the configuration.
 
+### Help <a name="help"></a>
+Because this template has been created and fully tested by F5 Networks, it is supported by F5. This means you can get assistance if necessary from F5 Technical Support.
 
+We encourage you to use our [Slack channel](https://f5cloudsolutions.herokuapp.com) for discussion and assistance on F5 CloudFormation templates.  This channel is typically monitored Monday-Friday 9-5 PST by F5 employees who will offer best-effort support. 
+
+## File an Issue
+If you find an issue, we would love to hear about it. 
+You have a choice when it comes to filing issues:
+  - For enhancements, feature requests, and non-urgent bug fixes: On the GitHub menu bar in this repository, use the **Issues** link. Tell us as much as you can about what you found and how you found it.
+  - For more time sensitive changes and other issues requiring immediate support: Use your typical method for contacting F5 Technical support.
+  
 ## Copyright
 
 Copyright 2014-2017 F5 Networks Inc.
