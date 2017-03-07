@@ -25,7 +25,7 @@ One you have launched the CFT from the marketplace, you need to complete the tem
 | virtualServicePort | x | Port on BIG-IP (the default is 80) |
 | applicationPort | x | Application Pool Member Port on BIG-IP (the default is 80) |
 | appInternalDnsName | x | DNS name for the application pool |
-| [policyLevel](#security-blocking-levels-) | x | WAF Policy Level to protect the application (the default is high) |
+| [policyLevel](blocking_levels.md) | x | WAF Policy Level to protect the application (the default is high) |
 | application |  | Application Tag (the default is f5app) |
 | environment |  | Environment Name Tag (the default is f5env) |
 | group |  | Group Tag (the default is f5group) |
