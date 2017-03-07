@@ -4,6 +4,8 @@
 ## Introduction
 This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
+For more details, see [Configuration details](config).
+
 ## Prerequisites
 Before deploying the solution from the AWS Marketplace, be sure that you have these prerequisites:
  - A [secure, accurate, and up-to-date template](security.md).
@@ -82,25 +84,22 @@ Scale Up Bytes Threshold = <br>
  
  [launch config info](launch_config.md)
 
-#### Configuration Example <a name="config"></a>
+#### Configuration details <a name="config"></a>
 
 The following is a simple configuration diagram deployment. 
 
 ![Configuration example](images/config-diagram-autoscale-waf.png)
 
-#### Detailed clustering information
-This solution creates a clustered system with "AutoSync" enabled, so any change is immediately propagated throughout the cluster. Each cluster member instance reports "Active" and "Actively" processes traffic.  Although Autosync is enabled and technically you can make changes to any existing clustered member, for consistency we recommend you make any changes to the original, primary instance.
+This solution creates a clustered set of BIG-IP VEs. They are configured by using an [iApp](https://devcentral.f5.com/iapps) that includes a basic virtual service (listening on 0.0.0.0:80) with a WAF policy.  
 
-parameter descript
-We also recommended you launch the cluster with one member instance to start. This instance registers itself as the primary and sets "Scale In" protection to Enabled. 
+When the first instance of BIG-IP VE launches, a device group called "autoscale-group" is automatically created. This instance is registered as the primary instance and it remains in the device group, even while other instances are launched/added to the cluster and terminated/removed from the cluster. 
 
-When the first auto scale instance is launched, a Device Group called "autoscale-group" is automatically created. 
+After the first instance is launched, you can log in to this instance and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
 
-Whenever a new instance is launched, it joins the cluster. If those instances are scaled down, they are removed from the cluster and the original instance remains. The cluster membership is updated once every 10 minutes and sends metrics every 60 seconds using [iCall](https://devcentral.f5.com/icall).
+Cluster membership is updated every 10 minutes and metrics are sent (where?) every 60 seconds using [iCall](https://devcentral.f5.com/icall).
 
-This deployment creates an initial BIG-IP configuration using an [iApp](https://devcentral.f5.com/iapps) that includes a basic virtual service (listening on 0.0.0.0:80) with a WAF policy.   
+Automatic sync is enabled for the device group, so configuration changes are immediately propagated to all BIG-IP VEs in the cluster. All instances are "Active" and actively process traffic. 
 
-After the first instance is launched, you can log in and customize the configuration.
 
 ### Help <a name="help"></a>
 Because this template has been created and fully tested by F5 Networks, it is supported by F5. This means you can get assistance if necessary from F5 Technical Support.
