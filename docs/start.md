@@ -112,7 +112,11 @@ All BIG-IP VE instances deploy with a single interface (NIC) attached to a publi
 
 The CloudFormation template uses the default **Best 1000Mbps** image available in the AWS marketplace to license these modules (you can choose 1000, 200, or 25 Mbps). Once the first instance is deployed, it becomes the cluster primary and all subsequent instances launched will join a cluster primary to pull the latest configuration from the cluster. In this respect, you can make changes to the running configuration of this cluster and not have to manage the lifecycle of the configuration strictly through the Launch Configuration.  
 
-[How to remove the solution](removing.md)
+## After you deploy ##
+
+- If you need to upgrade or change things, you can [update the stack](updating.md).
+
+- If you want to remove the solution altogether, [you can].(removing.md)
 
 
 ### Help <a name="help"></a>
