@@ -76,8 +76,8 @@ Scale Up Bytes Threshold = <br>
 1000 Mbps = 131072000 bytes * .80 = 104857600<br>
 5000 Mbps = 655360000 bytes * .80 = 524288000
  
-
-<a name="config"></a>## Deployment details  ##
+<a name="config"></a>
+## Deployment details  ##
 
 The following diagram shows a simple deployment of this solution. 
 
