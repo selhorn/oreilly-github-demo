@@ -10,7 +10,8 @@
  - [Additional BIG-IP VE Deployment and Configuration Details](#additional-big-ip-ve-deployment-and-configuration-details)
  - [Security](security.md)
  
- [updating]updating.md
+ [update the base configuration](updating.md)
+ [remove the solution](removing.md)
 
 
 ## Introduction
