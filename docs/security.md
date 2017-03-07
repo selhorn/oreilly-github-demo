@@ -1,17 +1,19 @@
-## Security
-This CloudFormation template downloads helper code to configure the BIG-IP system. To verify the integrity of the template, you can open the CFT and ensure the following lines are present. See [Security Detail](#securitydetail) for the exact code in each of the following sections.
+Ensuring the template is secure
+===============================
+
+To ensure the CloudFormation template is the one provided by F5, you can do some verification.
+
+## Checksums
+F5 provides checksums for all supported Amazon Web Services CloudFormation templates. For instructions and the checksums to compare against, see https://devcentral.f5.com/codeshare/checksums-for-f5-supported-cft-and-arm-templates-on-github-1014.
+
+## Helper Code
+The CloudFormation template downloads helper code, which is used to configure BIG-IP VE. 
+
+To verify the integrity of the code, open the CFT and ensure the following lines are present.
   - In the */config/verifyHash* section: **script-signature** and then a hashed signature
   - In the */config/installCloudLibs.sh* section **"tmsh load sys config merge file /config/verifyHash"**
-  
-Additionally, F5 provides checksums for all of our supported Amazon Web Services CloudFormation templates. For instructions and the checksums to compare against, see https://devcentral.f5.com/codeshare/checksums-for-f5-supported-cft-and-arm-templates-on-github-1014.
 
-In order to form a cluster of devices, a secure trust must be established between BIG-IP systems. To establish this trust, we generate and store credentials in an Amazon S3 bucket. You must not delete these credentials from the S3 bucket.
-
-
-
-
-## Security Details <a name="securitydetail"></a>
-This section has the entire code snippets for each of the lines you should ensure are present in your template file if you want to verify the integrity of the helper code in the template.
+You can also verify the code itself. 
 
 **/config/verifyHash section**
 
