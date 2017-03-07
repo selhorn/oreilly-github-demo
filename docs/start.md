@@ -26,7 +26,7 @@ This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Applica
 Before deploying the template, ensure you have the following prerequisites:
  - The appropriate [AWS permissions](perms.md). 
  - An AWS VPC with a public subnet.
- - A DNS name for the application pool. If you are using an ELB behind the BIG-IP VE, this can be the DNS name.
+ - A DNS name for the application pool; either a server or the ELB behind BIG-IP VE.
  - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VE. It must be pre-configured to perform SSL offload.
  - Key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS).
  - An AWS Security Group with the following inbound rules:
