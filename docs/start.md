@@ -66,7 +66,6 @@ One you have launched the CFT from the marketplace, you need to complete the tem
 | owner |  | Owner Tag (the default is f5owner) |
 | costcenter |  | Cost Center Tag (the default is f5costcenter) |
 <br>
-
 <sup>1</sup> About Scaling Up/Down Thresholds:
 The default values are set artificially low for testing. We recommend adjusting as a ratio to utility size (optional).
 For example, 80% of Throughput:
@@ -119,7 +118,7 @@ In AWS, an auto scaling group of BIG-IP VEs is created. Each instance's paramete
 
 - If you need to upgrade or change the deployment, you can [update the stack](updating.md).
 
-- If you want to remove the deployment altogether, [you can].(removing.md)
+- If you want to remove the deployment altogether, [you can](removing.md).
 
 
 ### Help <a name="help"></a>
