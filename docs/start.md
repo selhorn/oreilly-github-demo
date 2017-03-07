@@ -1,4 +1,4 @@
-# Auto Scaling BIG-IP VE Web Application Firewall in AWS
+# Auto Scaling BIG-IP VE Web Application Firewall (WAF) in AWS
 [![Slack Status](https://f5cloudsolutions.herokuapp.com/badge.svg)](https://f5cloudsolutions.herokuapp.com)
 
 ## Introduction
