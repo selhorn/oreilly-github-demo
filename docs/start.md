@@ -85,7 +85,7 @@ The following diagram shows a simple deployment of this solution.
 
 ### In BIG-IP VE: ###
 
-In this solution, a clustered set of BIG-IP VEs are created in AWS. 
+In this solution, a clustered set of BIG-IP VEs are created. 
 
 The LTM and ASM modules, which are part of a licensed **Best 1000Mbps** image, are provisioned on each BIG-IP VE, and provide advanced traffic management and security functionality.
 
