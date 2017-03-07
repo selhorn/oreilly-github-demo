@@ -2,7 +2,7 @@
 [![Slack Status](https://f5cloudsolutions.herokuapp.com/badge.svg)](https://f5cloudsolutions.herokuapp.com)
 
 ## Introduction
-This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
+This solution is an auto scaling deployment of BIG-IP Virtual Edition (VE) Web Application Firewall (WAF) in Amazon Web Services. The BIG-IP VEs have the <a href="https://f5.com/products/big-ip/local-traffic-manager-ltm">Local Traffic Manager</a> (LTM) and <a href="https://f5.com/products/big-ip/application-security-manager-asm">Application Security Manager</a> (ASM) modules enabled to provide advanced traffic management and web application security functionality. As traffic increases or decreases, the number of BIG-IP VE WAF instances automatically increases or decreases accordingly. 
 
 For more details, see [Deployment details](#config).
 
@@ -106,12 +106,12 @@ Automatic sync is enabled for the device group, so configuration changes are imm
 
 ### In AWS: ###
 
-In AWS, an auto scaling group of BIG-IP VEs is created. Each instance's parameters and configuration is defined by the auto scaling group's *launch configuration*. The launch configuration is used to:
+In AWS, an Auto Scaling Group of BIG-IP VEs is created. Each instance's parameters and configuration is defined by the Auto Scaling group's *launch configuration*. The launch configuration is used to:
 
   - Set the BIG-IP system information: hostname, NTP, DNS settings, and so on.
   - Provision the WAF module: BIG-IP Application Security Manager (ASM)
-  - Join the auto scale cluster
-  - Deploy integration with EC2 Auto Scale and CloudWatch services for scaling of the BIG-IP tier.
+  - Join the BIG-IP VE cluster
+  - Deploy integration with EC2 Auto Scaling and CloudWatch services for scaling of the BIG-IP tier.
   - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](blocking_levels.md).
 
 ## After you deploy ##
