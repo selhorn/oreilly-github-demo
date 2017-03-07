@@ -1,4 +1,4 @@
-### Updating the stack
+### Update the stack
 Certain elements of this deployment can be updated with the CloudFormation stack itself. This is referred to as *updating the Stack*. For instance, anything that causes the Auto Scale Launch Configuration to update, like changing the AMI IDs (to upgrade from one BIG-IP version to another), instance sizes, scaling thresholds, and many others, requires updating the stack. 
 
 Clustering is only done within a Launch Configuration ID basis, so any changes that result in a new Launch Configuration require the following procedure.
