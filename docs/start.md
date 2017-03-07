@@ -118,12 +118,12 @@ In AWS, an Auto Scaling Group of BIG-IP VEs is created. Each instance's paramete
 - If you want to remove the deployment altogether, [you can](removing.md).
 
 
-### Help <a name="help"></a>
+## Help ##
 Because this template has been created and fully tested by F5 Networks, it is supported by F5. This means you can get assistance if necessary from F5 Technical Support.
 
 We encourage you to use our [Slack channel](https://f5cloudsolutions.herokuapp.com) for discussion and assistance on F5 CloudFormation templates.  This channel is typically monitored Monday-Friday 9-5 PST by F5 employees who will offer best-effort support. 
 
-## File an Issue
+### File an Issue ###
 If you find an issue, we would love to hear about it. 
 You have a choice when it comes to filing issues:
   - For enhancements, feature requests, and non-urgent bug fixes: On the GitHub menu bar in this repository, use the **Issues** link. Tell us as much as you can about what you found and how you found it.
