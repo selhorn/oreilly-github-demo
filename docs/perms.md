@@ -1,6 +1,7 @@
-### What you need perms to
+AWS Permissions
+===============
 
-The CloudFormation Template creates and leverages several AWS resources to support Auto Scale, including:
+To use this solution, you must have access to the following resources.
 
   - S3 Bucket<br>
     The S3 bucket acts as persistent storage for the cluster database. It contains:
@@ -13,13 +14,13 @@ The CloudFormation Template creates and leverages several AWS resources to suppo
       {"username":"custom-admin","password":"J#\"?}$YDgb8c=L>>P8#FzmS$WB9EYzx3<"}
       ```
   - IAM Role<br>
-  The IAM Role is used to create Instance Profile. The instance profile allows the auto scaled BIG-IP instances to access / update the S3 Bucket, query the Auto Scale Group, and upload metrics to Cloudwatch.
+  The IAM Role is used to create Instance Profile. The instance profile allows the auto scaled BIG-IP VE instances to access / update the S3 Bucket, query the Auto Scale Group, and upload metrics to Cloudwatch.
   
   - SNS Topic<br>
   The SNS topic is used to notify the admin via email of Scale Up / Down events.
   - Cloudwatch Alarms<br>
   These alarms are used to trigger scale Up / Down events.
-  - Auto Scale Group<br>
+  - Auto Scaling Group<br>
   By default, the number of auto scaled instances is set to 1 and the Max is set to 8. We recommend you launch the solution with 1 instance to start. 
 
 
