@@ -8,7 +8,7 @@ For more details, see [Deployment details](#config).
 
 ## Prerequisites
 Before deploying the solution from the AWS Marketplace, be sure you have these prerequisites:
- - A [secure, accurate, and up-to-date template](security.md){:target="_blank"}.
+ - A [secure, accurate, and up-to-date template](security.md).
  - The appropriate [AWS permissions](perms.md). 
  - An AWS VPC with a public subnet.
  - A DNS name for the application pool; either a server or the ELB behind BIG-IP VE.
