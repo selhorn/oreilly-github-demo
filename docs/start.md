@@ -65,7 +65,7 @@ The template contains the following parameters.
 | owner |  | Owner Tag (the default is f5owner) |
 | costcenter |  | Cost Center Tag (the default is f5costcenter) |
 <br>
-<sup>1</sup> About Scaling Up/Down Thresholds:
+<sup>1</sup> Scaling Up/Down Thresholds:
 The default values are set artificially low for testing. We recommend adjusting as a ratio to utility size (optional).
 For example, 80% of Throughput:
 
