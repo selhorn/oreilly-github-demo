@@ -8,11 +8,11 @@ For more details, see [Deployment details](#config).
 
 ## Prerequisites
 Before you deploy this solution from the AWS Marketplace, you need these prerequisites:
- - A [secure, accurate, and up-to-date template](security.md).
- - The appropriate [AWS permissions](perms.md). 
+ - A [secure, accurate, and up-to-date template](/docs/security.md).
+ - The appropriate [AWS permissions](/docs/perms.md). 
  - An AWS VPC with a public subnet.
  - A DNS name for the application pool; either a server or the ELB behind BIG-IP VE.
- - A classic [Elastic load balancer (ELB)](ELB_details.md) in front of the BIG-IP VE. It must be pre-configured to perform SSL offload.
+ - A classic [Elastic load balancer (ELB)](/docs/ELB_details.md) in front of the BIG-IP VE. It must be pre-configured to perform SSL offload.
  - A key pair for SSH access to BIG-IP VE (you can create or import the key pair in AWS).
  - An AWS Security Group with the following inbound rules:
     - Port 22 for SSH access to BIG-IP VE *(source = Intra-VPC and/or mgmt networks)*
@@ -30,7 +30,7 @@ From the Marketplace:
 - From the **Delivery Methods** list, select **Auto Scale Cluster Deployment using AWS CFT**.
 - Click **Continue**.
 - Launch the CloudFormation template.
-- When BIG-IP VE has initialized successfully, [log in](login.md).
+- When BIG-IP VE has initialized successfully, [log in](/docs/login.md).
 
 ### Template Parameters ###
 The template contains the following parameters.  
@@ -58,7 +58,7 @@ The template contains the following parameters.
 | virtualServicePort | x | Port on BIG-IP (the default is 80) |
 | applicationPort | x | Application Pool Member Port on BIG-IP (the default is 80) |
 | appInternalDnsName | x | DNS name for the application pool |
-| [policyLevel](blocking_levels.md) | x | WAF Policy Level to protect the application (the default is high); for details, see [Security blocking levels](blocking_levels.md) |
+| [policyLevel](/docs/blocking_levels.md) | x | WAF Policy Level to protect the application (the default is high); for details, see [Security blocking levels](/docs/blocking_levels.md) |
 | application |  | Application Tag (the default is f5app) |
 | environment |  | Environment Name Tag (the default is f5env) |
 | group |  | Group Tag (the default is f5group) |
@@ -95,7 +95,7 @@ Each BIG-IP VE instance has a single network interface (NIC) attached to a publi
 
 When the first instance of BIG-IP VE launches, a device group called "autoscale-group" is automatically created. This instance is registered as the primary instance and it remains in the device group, even while other instances are launched/added to the cluster and terminated/removed from the cluster. 
 
-After the first instance is launched, you can [log in to this instance](login.md) and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
+After the first instance is launched, you can [log in to this instance](/docs/login.md) and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
 
 Cluster membership is updated every 10 minutes and metrics are sent (where?) every 60 seconds using [iCall](https://devcentral.f5.com/icall).
 
@@ -109,13 +109,13 @@ In AWS, an Auto Scaling Group of BIG-IP VEs is created. Each instance's paramete
   - Provision the WAF module: BIG-IP Application Security Manager (ASM)
   - Join the BIG-IP VE cluster
   - Deploy integration with EC2 Auto Scaling and CloudWatch services for scaling of the BIG-IP tier.
-  - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](blocking_levels.md)).
+  - Create an initial HTTP virtual server with a basic Web Application Firewall policy ([Low, Medium, High](/docs/blocking_levels.md)).
   
 ## After you deploy ##
 
-- If you need to upgrade or change the deployment, you can [update the stack](updating.md).
+- If you need to upgrade or change the deployment, you can [update the stack](/docs/updating.md).
 
-- If you want to remove the deployment altogether, [you can](removing.md).
+- If you want to remove the deployment altogether, [you can](/docs/removing.md).
 
 
 ### Help ###
