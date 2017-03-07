@@ -88,7 +88,7 @@ The following diagram shows a simple deployment of this solution.
 
 In this solution, a clustered set of BIG-IP VEs are created in AWS. 
 
-The LTM and ASM modules, which are provisioned on each BIG-IP VE, provide advanced traffic management and security functionality. The CloudFormation template uses the default **Best 1000Mbps** image available in the AWS marketplace to license these modules (you can choose 1000, 200, or 25 Mbps).
+The LTM and ASM modules, which are part of a licensed **Best 1000Mbps** image, are provisioned on each BIG-IP VE, and provide advanced traffic management and security functionality.
 
 The BIG-IP VEs are configured by using an [iApp](https://devcentral.f5.com/iapps) that includes a basic virtual service (listening on 0.0.0.0:80) with a WAF policy. 
 
@@ -96,9 +96,9 @@ Each BIG-IP VE instance has a single network interface (NIC) attached to a publi
 
 When the first instance of BIG-IP VE launches, a device group called "autoscale-group" is automatically created. This instance is registered as the primary instance and it remains in the device group, even while other instances are launched/added to the cluster and terminated/removed from the cluster. 
 
-After the first instance is launched, you can log in to this instance and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
+After the first instance is launched, you can [log in to this instance](login.md) and customize its configuration. While you can technically make changes to any BIG-IP VE in the cluster, for consistency you should only make changes to the original, primary instance.
 
-[How to update the base configuration](updating.md)
+For details about updating the base configuration, see [Update the base configuration](updating.md).
 
 Cluster membership is updated every 10 minutes and metrics are sent (where?) every 60 seconds using [iCall](https://devcentral.f5.com/icall).
 
