@@ -33,8 +33,7 @@ From the Marketplace:
 - When BIG-IP VE has initialized successfully, [log in](login.md).
 
 ### Template Parameters ###
-One you have launched the CFT from the marketplace, you need to complete the template by entering the required parameter values. The following table can help you gather the information you need before beginning the template.  
-
+The template contains the following parameters.  
 
 | Parameter | Required | Description |
 | --- | --- | --- |
