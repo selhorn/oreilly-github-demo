@@ -1,4 +1,5 @@
-### Removing the deployment
+Remove the deployment
+=====================
 
 To remove the deployment, there are few objects that need to be removed manually before you can delete the stack associated with the clustered auto scale BIG-IP CloudFormation template.  
 
