@@ -45,6 +45,7 @@ For the Marketplace,
 - From the **Delivery Methods** list, select **Auto Scale Cluster Deployment using AWS CFT**
 - Click **Continue**
 - Launch the CloudFormation template.
+- When BIG-IP VE is running, [log in](login.md).
 
 ### Template Parameters ###
 One you have launched the CFT from the marketplace, you need to complete the template by entering the required parameter values. The following table can help you gather the information you need before beginning the template.  
