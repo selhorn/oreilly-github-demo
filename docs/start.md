@@ -7,7 +7,7 @@ This solution implements auto scaling of BIG-IP Virtual Edition (VE) Web Applica
 For more details, see [Configuration details](config).
 
 ## Prerequisites
-Before deploying the solution from the AWS Marketplace, be sure that you have these prerequisites:
+Before deploying the solution from the AWS Marketplace, be sure you have these prerequisites:
  - A [secure, accurate, and up-to-date template](security.md).
  - The appropriate [AWS permissions](perms.md). 
  - An AWS VPC with a public subnet.
