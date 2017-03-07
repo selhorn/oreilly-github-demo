@@ -138,16 +138,14 @@ The CloudFormation Template creates and leverages several AWS resources to suppo
 
 
 
-
-
 ---
 
 
-## Filing Issues
+## File an Issue
 If you find an issue, we would love to hear about it. 
 You have a choice when it comes to filing issues:
-  - Use the **Issues** link on the GitHub menu bar in this repository for items such as enhancement or feature requests and non-urgent bug fixes. Tell us as much as you can about what you found and how you found it.
-  - Contact F5 Technical support via your typical method for more time sensitive changes and other issues requiring immediate support.
+  - For enhancements, feature requests, and non-urgent bug fixes: On the GitHub menu bar in this repository, use the **Issues** link. Tell us as much as you can about what you found and how you found it.
+  - For more time sensitive changes and other issues requiring immediate support: Use your typical method for contacting F5 Technical support.
 
 
 
